@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheets"  href="recipes.scss">
+<link href="https://use.fontawesome.com/releases/v5.15.0/css/all.css" rel="stylesheet">
+<title>タイトル</title>
+<script
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script src="javascript/packs/recipes.js" ></script>
+</head>
+<body>
+<div class=hole_area>
+  <div class=header>
+    <div class= header_left>
+      <span>タイトル</span>
+    </div>
+    <div class=header_right>
+      <% current_user = '1' %>
+      <% if user_signed_in? %>
+      <%# <% if current_user.present?%> %>
+        <a class="fas fa-user-circle header_right_mypage" href="#"></a>
+      <% else %>
+        <div class=header_right_rogin>rogin</div>
+      <% end %>
+      <div class="header_right_menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav class="globalMenuSp">
+          <ul>
+              <li><a href="#">Menu1</a></li>
+              <li><a href="#">Menu2</a></li>
+              <li><a href="#">Menu3</a></li>
+              <li><a href="#">Menu4</a></li>
+              <li><a href="#">Menu5</a></li>
+          </ul>
+      </nav>
+    </div> 
+  </div>
+  <div class=main>
+   <div class=main_tab>tabu</div>
+   <div class=main_posts>toukou</div>  
+  </div>
+</div>
+</body>
+</html>
