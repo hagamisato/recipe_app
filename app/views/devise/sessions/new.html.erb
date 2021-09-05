@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheets"  href="sessions.scss">
+<link href="https://use.fontawesome.com/releases/v5.15.0/css/all.css" rel="stylesheet">
+<title>ログイン</title>
+<script
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script src="javascript/packs/sessions.js" ></script>
+
+<div class="main">
+  <div class="session">
+    <div class="session_title">Log in</div>
+    <div class="session_content">
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="session_content_email">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="session_content_pass">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="session_content_remember">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+
+        <div class="session_content_submit">
+          <%= f.submit "Log in" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="session_render">
+      <%= render "devise/shared/links" %>
+    </div> 
+  </div>
+</div>
