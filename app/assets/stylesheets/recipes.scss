@@ -17,7 +17,10 @@ body {
   width: 100%;
   margin: 0px;
   display: box;
-  background-color: #ffe5cc;
+  background-color: #ffe2ad;
+	background-image:
+	 linear-gradient(-90deg, #ffe5b5 50%, transparent 50%, transparent);
+	background-size: 14px 14px;
 }
 
 .hole_area {
@@ -28,8 +31,30 @@ body {
 .header{
   height: 70px;
   display: flex;
-  background-color: #ffc489;
+  background-color: orange;
+  margin: 20px 0px;
+  position: relative;
+    background: orange;
+    box-shadow: 0px 0px 0px 5px orange;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;
+  .after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: orange #fff orange;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+  }
+  .p {
+      margin: 0; 
+      padding: 0;
+  }
   .header_left {
+    color: orangçered;
     margin: 10px 20px 20px;
     font-size: 30px;
     margin-right: auto;
@@ -37,7 +62,7 @@ body {
   .header_right {
     display: flex;
     justify-content: space-around;
-    margin-left: auto;
+    margin: 10px 30px;
     &_mypage {
       font-size: 35px;
       color: #aaa;
@@ -45,7 +70,9 @@ body {
       margin: 15px 5px 5px;
     }
     &_rogin {
-      margin: 10px 5px 5px;
+      color: orangered;
+      text-decoration: none;
+      padding : 10px 5px 5px;
     }
     &_menu {
       display : block;
@@ -65,147 +92,15 @@ body {
 .main {
   display: flex;
   justify-content: space-between;
+  padding: 50px 100px;
+  border: orange;
   &_tab {
     width: 400px;
-    margin: 40px 50px;
-    background-color: green;
+    background-color: cornsilk;
   }
   &_posts {
     width: 600px;
-    margin: 40px 50px;
-    background-color: skyblue;
+    margin: 0px 50px 0px;
+    background-color: cornsilk;
   }
-}
-
-// CSS JSResult Skip Results Iframe
-// EDIT ON
-// .header_right_menu {
-  // display : block;
-  // position: fixed;
-  // z-index : 3;
-  // right : 32px;
-  // top   : 32px;
-  // width : 42px;
-  // height: 42px;
-  // cursor: pointer;
-  // text-align: center;
-// }
-.header_right_menu span {
-  display : block;
-  position: absolute;
-  width   : 30px;
-  height  : 2px ;
-  left    : 6px;
-  background : #555;
-  -webkit-transition: 0.5s all;
-  -moz-transition   : 0.5s all;
-  transition        : 0.5s all;
-}
-.header_right_menu span:nth-child(1) {
-  top: 10px;
-}
-.header_right_menu span:nth-child(2) {
-  top: 20px;
-}
-.header_right_menu span:nth-child(3) {
-  top: 30px;
-}
-
-/* ナビ開いてる時のボタン */
-
-.header_right_menu.active span:nth-child(1) {
-  top : 16px;
-  left: 6px;
-  width: 24px;
-    background : #fff;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform   : rotate(-45deg);
-  transform        : rotate(-45deg);
-}
-.header_right_menu.active span:nth-child(2) {
-  left: 60%;
-  opacity: 0;
-  -webkit-animation: active-btn17-bar02 .8s forwards;
-  animation: active-header_right_menu-bar02 .8s forwards;
-}
-@-webkit-keyframes active-header_right_menu-bar02 {
-  100% {
-    height: 0;
-  }
-}
-@keyframes active-header_right_menu-bar02 {
-  100% {
-    height: 0;
-  }
-}
-.header_right_menu.active span:nth-child(3) {
-  top: 16px;
-  width: 24px;
-  background : #fff;
-  -webkit-transform: rotate(45deg);
-  -moz-transform   : rotate(45deg);
-  transform        : rotate(45deg);
-}
-
-
-.header_right_menu::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: block;
-  content: '';
-  width: 52px;
-  height: 52px;
-  margin: -32px 0 0 -32px;
-  border-radius: 50%;
-  border: 2px solid rgba(0, 0, 0, 0);
-  transition: all .75s;
-}
-.header_right_menu.active::after {
-  border: 2px solid #fff;
-}
-
-nav.globalMenuSp {
-  position: fixed;
-  z-index : 2;
-  top  : 0;
-  left : 0;
-  color: #fff;
-  background: rgba(0,0,0,0.7);
-  text-align: center;
-  width: 100%;
-  opacity: 0;
-  transition: opacity .6s ease, visibility .6s ease;
-}
-
-nav.globalMenuSp ul {
-  margin: 0 auto;
-  padding: 0;
-  width: 100%;
-}
-
-nav.globalMenuSp ul li {
-  list-style-type: none;
-  padding: 0;
-  width: 100%;
-  transition: .4s all;
-}
-nav.globalMenuSp ul li:last-child {
-  padding-bottom: 0;
-}
-nav.globalMenuSp ul li:hover{
-  background :#ddd;
-}
-
-nav.globalMenuSp ul li a {
-  display: block;
-  color: #fff;
-  padding: 1em 0;
-  text-decoration :none;
-}
-
-/* このクラスを、jQueryで付与・削除する */
-nav.globalMenuSp.active {
-  opacity: 100;
-
 }

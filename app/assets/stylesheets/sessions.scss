@@ -1,0 +1,45 @@
+.main{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  .session{
+    height: 500px;
+    background-color: lightyellow;
+    border-style: double;
+    border-color: orange;
+    margin: 100px auto 0px;
+    padding: 0px 100px;
+    &_title{
+      color: orangered;
+      font-size: 30px;
+      font-weight: bold;
+      margin: 50px 0px;
+      display: flex;
+      justify-content: center;
+    }
+    &_content{
+      color: orange;
+      display: flex;
+      justify-content: center;
+      &_submit{
+        margin: 10px 0px 20px;
+      }
+      &_name {
+      }
+    }
+    &_render{
+      text-decoration: none;
+    }
+  }
+}
+
+.link_signup {
+  color: gray;
+  text-decoration: none;
+}
+
+.link_forgotpass {
+  color: gray;
+  text-decoration: none;
+}
