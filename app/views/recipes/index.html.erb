@@ -19,18 +19,25 @@
     <div class=header_right>
       <% if user_signed_in? %>
         <a class="fas fa-user-circle header_right_mypage" href="#"></a>
+        <div class="header_right_menu">
+        </div>
         <div class=name><%= current_user.name %></div>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to "rogin", new_user_session_path, class: 'header_right_rogin' %>
       <% end %>
-      <div class="header_right_menu">
-      </div>
     </div> 
   </div>
   <div class=main>
-   <div class=main_tab>タブ</div>
-   <div class=main_posts>投稿</div>  
+    <div class=main_tags>タブ</div>
+    <div class=main_posts>
+      <% @recipes.each do |recipe| %>
+        <div class=main_posts_post>
+          <div class=main_posts_post_title><%= recipe.title%></div>
+          <div><%= recipe.explain %></div>
+        </div>
+      <% end %>
+   </div>  
   </div>
 </div>
 </body>

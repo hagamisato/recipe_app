@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Recipe.delete_all
+Material.delete_all
+Tag.delete_all
+Favorite.delete_all
+
+
+Recipe.create(title: '卵焼き', explain: '卵を溶く。焼く。', is_browsable: 1, conversion_title: 'ﾀﾏｺﾞﾔｷ', user_id: '1')
+Recipe.create(title: '卵焼き', explain: '卵を溶く。焼く。', is_browsable: 1, conversion_title: 'ﾀﾏｺﾞﾔｷ', user_id: '1')
+Recipe.create(title: '卵焼き', explain: '卵を溶く。焼く。', is_browsable: 1, conversion_title: 'ﾀﾏｺﾞﾔｷ', user_id: '1')
+Recipe.create(title: '卵焼き', explain: '卵を溶く。焼く。', is_browsable: 1, conversion_title: 'ﾀﾏｺﾞﾔｷ', user_id: '1')
+Material.create(recipe_id: '1', nm_material: 'たまご', amnt_material: '2個', convert_material: 'ﾀﾏｺﾞ')
+Material.create(recipe_id: '1', nm_material: '顆粒だし', amnt_material: '小さじ 1/2', convert_material: 'ｶﾘｭｳﾀﾞｼﾞ')
+Tag.create(nm_tag: '和食', recipe_id: '1')
+Favorite.create(user_id: '2', recipe_id: '1')

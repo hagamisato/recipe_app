@@ -70,19 +70,23 @@ body {
       margin: 15px 5px 5px;
     }
     &_rogin {
+      width: 50px;
+      height: 50px;
+      line-height: 35px;
+      text-align: center;
+      vertical-align: middle;
       color: orangered;
       text-decoration: none;
-      padding : 10px 5px 5px;
+    }
+    &_rogin:hover {
+      color: red;
+      font-size: 18px;
+      font-weight: bold;
+      border: white 1px;
+      border-radius: 40%;
     }
     &_menu {
       display : block;
-      position: fixed;
-      z-index : 3;
-      right : 32px;
-      top   : 32px;
-      width : 42px;
-      height: 42px;
-      cursor: pointer;
       text-align: center;
       margin: 10px 5px 5px;
     }
@@ -94,13 +98,30 @@ body {
   justify-content: space-between;
   padding: 50px 100px;
   border: orange;
-  &_tab {
-    width: 400px;
+  &_tags {
+    width: 350px;
     background-color: cornsilk;
   }
   &_posts {
-    width: 600px;
+    width: 700px;
     margin: 0px 50px 0px;
+    display: flex;
+    flex-wrap: wrap;
     background-color: cornsilk;
+    padding: 0px 20px 20px;
+    &_post {
+      height: 250px;
+      width: 180px;
+      background-color: #fff;
+      margin: 20px 20px ;
+      &_title {
+        height: 40px;
+        font-weight: bold;
+        line-height: 40px;
+        border-bottom: solid orange;
+        margin: 10px 0px 0px;
+        padding: 0px 10px;
+      }
+    }
   }
 }

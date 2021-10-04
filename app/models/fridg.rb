@@ -1,0 +1,2 @@
+class Fridg < ApplicationRecord
+end
