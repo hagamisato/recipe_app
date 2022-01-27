@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2021_09_12_142934) do
 
   create_table "fridgs", primary_key: "fridge_material_id", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "nm_fridge_mtrl", default: "", null: false
-    t.string "amnt_fridge_mtrl", default: "", null: false
-    t.string "mtrl_expirationday", default: "", null: false
+    t.string "amnt_fridge_mtrl", default: ""
+    t.string "mtrl_expirationday", default: ""
     t.bigint "recip_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_09_12_142934) do
   create_table "materials", primary_key: "material_id", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "nm_material", default: "", null: false
     t.string "amnt_material", default: "", null: false
-    t.string "convert_material", default: "", null: false
+    t.string "convert_material", default: ""
     t.bigint "recipe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2021_09_12_142934) do
     t.string "title", default: "", null: false
     t.text "explain"
     t.integer "is_browsable", default: 0, null: false
-    t.string "conversion_title", default: "", null: false
+    t.string "conversion_title", default: ""
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

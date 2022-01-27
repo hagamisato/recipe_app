@@ -1,0 +1,34 @@
+<div class=new_area>
+  <div class=new_area_title>RECIPE</div>
+  <span>タイトル</span>
+  <div><%= text_field_tag :title, @recipe.title %></div>
+  <% p @materials %>
+  <% @materials.each do |material| %>
+    <div class='nm_material'>
+      <span>材料</span>
+      <div><%= text_field_tag :nm_material, material&.nm_material %></div>
+    </div>
+    <div class='amnt_material'>
+      <span>分量</span>
+      <div><%= text_field_tag :amnt_material, material&.amnt_material %></div>  
+    </div>
+  <% end %>
+  <span>手順の説明</span>
+  <div><%= text_area_tag :explain %></div>
+  <span>レシピの公開</span>
+  <div>
+    <div>
+      <%= radio_button_tag :is_browsable, checked: @recipe.is_browsable.to_i == 1 || @recipe.is_browsable.blank?  %>
+      <%= label_tag :is_browsable, '公開する　', value: 1 %>
+    </div>
+    <div>
+      <%= radio_button_tag :is_browsable, checked: @recipe.is_browsable.to_i == 0 %>
+      <%= label_tag :is_browsable, '公開しない', value: 0 %>
+    </div>
+  </div>
+
+  <div class=btn_to_home>
+    <%= link_to "ホームへ戻る", recipes_path, class: 'btn_to_home' %>
+     
+  </div>
+</div>

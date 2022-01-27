@@ -16,26 +16,39 @@
     <div class= header_left>
       <span>タイトル</span>
     </div>
-    <div class=header_right>
-      <% if user_signed_in? %>
-        <a class="fas fa-user-circle header_right_mypage" href="#"></a>
-        <div class="header_right_menu">
+    <% if user_signed_in? %>
+      <div class=header_center>
+        <div class='header_center_mypage'>
+          <%# <a class="fas fa-user-circle header_center_mypage_icon" href="#">mypage</a> %>
+          <a href = '', class='header_center_mypage_text'>mypage</a>
         </div>
-        <div class=name><%= current_user.name %></div>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "rogin", new_user_session_path, class: 'header_right_rogin' %>
-      <% end %>
-    </div> 
+        <div class="header_center_menu">
+        </div>
+         <%= link_to 'write recipe', new_recipe_path, class:'header_center_recipe'%>
+        <div class=header_right_name><%= current_user.name %></div>
+        <%= link_to "rogout", destroy_user_session_path, method: :delete, class: 'header_center_rogout' %>
+      </div>
+    <% else %>
+      <div class=header_right>
+      <%= link_to "rogin", new_user_session_path, class: 'header_right_rogin' %>
+      </div> 
+    <% end %>
   </div>
   <div class=main>
     <div class=main_tags>タブ</div>
     <div class=main_posts>
       <% @recipes.each do |recipe| %>
+        <%= link_to recipe_path(recipe_id: recipe.recipe_id), class: 'link' do %>
         <div class=main_posts_post>
           <div class=main_posts_post_title><%= recipe.title%></div>
-          <div><%= recipe.explain %></div>
+          <%# <div>'recipe.materials'</div>  %>
+          <%# <%= recipe.materials %> 
+          <%# <div>'recipe.explain'</div> %>
+          <div class=main_posts_post_explain><%= recipe.explain %></div>
+          <div class=main_posts_post_noimage>no image</div>
+          <%# <div class=main_posts_post_photo><%= recipe.photo_id%>
         </div>
+       <% end %> 
       <% end %>
    </div>  
   </div>

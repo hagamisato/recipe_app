@@ -1,3 +1,3 @@
 class Tag < ApplicationRecord
-  belongs_to :recipes
+  belongs_to :recipe
 end

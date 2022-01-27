@@ -12,11 +12,11 @@ Tag.delete_all
 Favorite.delete_all
 
 
-Recipe.create(title: '卵焼き', explain: '卵を溶く。焼く。', is_browsable: 1, conversion_title: 'ﾀﾏｺﾞﾔｷ', user_id: '1')
-Recipe.create(title: '卵焼き', explain: '卵を溶く。焼く。', is_browsable: 1, conversion_title: 'ﾀﾏｺﾞﾔｷ', user_id: '1')
-Recipe.create(title: '卵焼き', explain: '卵を溶く。焼く。', is_browsable: 1, conversion_title: 'ﾀﾏｺﾞﾔｷ', user_id: '1')
-Recipe.create(title: '卵焼き', explain: '卵を溶く。焼く。', is_browsable: 1, conversion_title: 'ﾀﾏｺﾞﾔｷ', user_id: '1')
-Material.create(recipe_id: '1', nm_material: 'たまご', amnt_material: '2個', convert_material: 'ﾀﾏｺﾞ')
-Material.create(recipe_id: '1', nm_material: '顆粒だし', amnt_material: '小さじ 1/2', convert_material: 'ｶﾘｭｳﾀﾞｼﾞ')
-Tag.create(nm_tag: '和食', recipe_id: '1')
+Recipe.create(recipe_id: '1', title: '卵焼き', explain: '卵を溶く。焼く。', is_browsable: 1, conversion_title: 'ﾀﾏｺﾞﾔｷ', user_id: '1')
+Recipe.create(recipe_id: '2', title: '卵焼き', explain: '卵を溶く。焼く。', is_browsable: 1, conversion_title: 'ﾀﾏｺﾞﾔｷ', user_id: '1')
+Recipe.create(recipe_id: '3', title: '卵焼き', explain: '卵を溶く。焼く。', is_browsable: 1, conversion_title: 'ﾀﾏｺﾞﾔｷ', user_id: '1')
+Recipe.create(recipe_id: '4', title: '卵焼き', explain: '卵を溶く。焼く。', is_browsable: 1, conversion_title: 'ﾀﾏｺﾞﾔｷ', user_id: '1')
+Material.create(material_id: '1', recipe_id: '1', nm_material: 'たまご', amnt_material: '2個', convert_material: 'ﾀﾏｺﾞ')
+Material.create(material_id: '2',recipe_id: '1', nm_material: '顆粒だし', amnt_material: '小さじ 1/2', convert_material: 'ｶﾘｭｳﾀﾞｼﾞ')
+Tag.create(tag_id: '1', nm_tag: '和食', recipe_id: '1')
 Favorite.create(user_id: '2', recipe_id: '1')
