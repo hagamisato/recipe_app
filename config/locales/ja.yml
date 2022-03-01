@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 不正なレコードです
+    attributes:
+      recipe:
+        title: タイトル
+        explain: 手順の説明
+
+      material: 
+        nm_material: 材料
+        amnt_material: 分量
+
+

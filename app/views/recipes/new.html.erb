@@ -1,32 +1,42 @@
-<%= form_for :data, method: :post, url: recipes_path do |f| %>
-
-
-  <div class=new_area>
+<div class=new_area>
+  <%= form_for @recipe, method: :post, url: recipes_path, validate: true, id: 'form' do |f| %>
     <div class=new_area_title>NEW RECIPE</div>
     <span>タイトル</span>
-    <div><%= f.text_field :title %></div>
-    <span>材料</span>
-    <div><%= f.text_field :nm_material %></div>
-    <span>分量</span>
-    <div><%= f.text_field :amnt_material %></div>  
+    <div><%= f.text_field :title, class: 'title text_box' %></div>
+    <% if @recipe.errors.any? && @recipe.errors.full_messages_for(:title).present? %>
+      <div class='red error_title' data-error_title=true ><%= @recipe.errors.full_messages_for(:title).first %></div>
+    <% end %>
+    <%= fields_for :material_list, @materials do |fi| %>
+      <span>材料</span>
+      <div><%= fi.text_field :nm_material, class: 'nm_material text_box' %></div>
+      <% if @materials.errors.any? && @materials.errors.full_messages_for(:nm_material).present? %>
+        <div class='red error_nm_material' data-error_nm_material=true ><%= @materials.errors.full_messages_for(:nm_material).first %></div>
+      <% end %>
+      <span>分量</span>
+      <div><%= fi.text_field :amnt_material, class: 'amnt_material text_box' %></div>
+        <% if @materials.errors.any? && @materials.errors.full_messages_for(:amnt_material).present? %>
+          <div class='red error_amnt_material' data-error_amnt_material=true ><%= @materials.errors.full_messages_for(:amnt_material).first %></div>
+        <% end %>
+    <% end %>
     <span>手順の説明</span>
-    <div><%= f.text_area :explain %></div>
+    <div><%= f.text_area :explain, class: 'explain text_box' %></div>
+    <% if @recipe.errors.any? && @recipe.errors.full_messages_for(:explain).present? %>
+      <div class='red error_explain' data-error_explain=true ><%= @recipe.errors.full_messages_for(:explain).first %></div>
+    <% end %>
     <span>レシピの公開</span>
     <div>
       <div>
-        <%= f.radio_button :is_browsable, checked: @recipe.is_browsable.to_i == 1 || @recipe.is_browsable.blank?  %>
+        <%= f.radio_button :is_browsable, 1, checked: @recipe.is_browsable.to_i == 1 || @recipe.is_browsable.blank?  %>
         <%= f.label :is_browsable, '公開する　', value: 1 %>
       </div>
       <div>
-        <%= f.radio_button :is_browsable, checked: @recipe.is_browsable.to_i == 0 %>
+        <%= f.radio_button :is_browsable, 0, checked: @recipe.is_browsable.to_i == 0 %>
         <%= f.label :is_browsable, '公開しない', value: 0 %>
       </div>
     </div>
-  
-  <%= f.submit '登録' %>
-  <div class=btn_to_home>
-    <%= link_to "ホームへ戻る", recipes_path, class: 'btn_to_home' %>
-    <%= link_to "詳細", recipe_path('1'), class: 'btn_to_home' %>
-  </div>
-  </div>
-<% end %>
+    <%= f.submit '登録' %>
+    <div class=btn_to_home>
+      <%= link_to "ホームへ戻る", recipes_path, class: 'btn_to_home' %>
+    </div>
+  <% end %>
+</div>

@@ -1,34 +1,32 @@
 <div class=new_area>
   <div class=new_area_title>RECIPE</div>
   <span>タイトル</span>
-  <div><%= text_field_tag :title, @recipe.title %></div>
-  <% p @materials %>
-  <% @materials.each do |material| %>
+  <div><%= text_field_tag :title, @recipe.title, readonly: true %></div>
     <div class='nm_material'>
       <span>材料</span>
-      <div><%= text_field_tag :nm_material, material&.nm_material %></div>
+      <div><%= text_field_tag :nm_material, @materials.nm_material, readonly: true %></div>
     </div>
     <div class='amnt_material'>
       <span>分量</span>
-      <div><%= text_field_tag :amnt_material, material&.amnt_material %></div>  
+      <div><%= text_field_tag :amnt_material, @materials.amnt_material, readonly: true %></div>  
     </div>
-  <% end %>
   <span>手順の説明</span>
-  <div><%= text_area_tag :explain %></div>
+  <div><%= text_area_tag :explain, @recipe.explain, readonly: true %></div>
   <span>レシピの公開</span>
   <div>
     <div>
-      <%= radio_button_tag :is_browsable, checked: @recipe.is_browsable.to_i == 1 || @recipe.is_browsable.blank?  %>
+      <%= radio_button_tag :is_browsable, 1, checked: @recipe.is_browsable.to_i == 1 || @recipe.is_browsable.blank?, disabled: true  %>
       <%= label_tag :is_browsable, '公開する　', value: 1 %>
     </div>
     <div>
-      <%= radio_button_tag :is_browsable, checked: @recipe.is_browsable.to_i == 0 %>
+      <%= radio_button_tag :is_browsable, 0, checked: @recipe.is_browsable.to_i == 0, disabled: true %>
       <%= label_tag :is_browsable, '公開しない', value: 0 %>
     </div>
   </div>
-
+  <div class=btn_to_home>
+    <%= link_to "修正する", edit_recipe_path(recipe_id: @recipe.recipe_id), class: 'btn_to_home' %>
+  </div>
   <div class=btn_to_home>
     <%= link_to "ホームへ戻る", recipes_path, class: 'btn_to_home' %>
-     
   </div>
 </div>

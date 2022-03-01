@@ -1,0 +1,14 @@
+rails g model Recipe
+
+rails g model Material
+
+
+rails g model Tag
+
+
+rails g model Fridge
+
+rails g model favorite
+
+
+rails g model Photo
