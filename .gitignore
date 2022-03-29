@@ -82,5 +82,3 @@ yarn-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
-
-config/database.yml

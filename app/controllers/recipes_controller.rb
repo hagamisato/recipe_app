@@ -28,9 +28,6 @@ class RecipesController < ApplicationController
     recipe_invalid = recipe.invalid?
     materials_invalid = material_list.invalid?
 
-    p '*************'
-    p material_list.errors.full_messages
-
     if recipe_invalid || materials_invalid
       @recipe = recipe
       @materials = material_list
