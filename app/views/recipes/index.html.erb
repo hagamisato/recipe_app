@@ -37,6 +37,7 @@
   <div class=main>
     <div class=main_tags>タブ</div>
     <div class=main_posts>
+    <% if @recipes.present? %>
       <% @recipes.each do |recipe| %>
         <%= link_to recipe_path(recipe_id: recipe.recipe_id), class: 'link' do %>
         <div class=main_posts_post>
@@ -50,6 +51,7 @@
         </div>
        <% end %> 
       <% end %>
+    <% end %>
    </div>  
   </div>
 </div>
