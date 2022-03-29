@@ -1,4 +1,9 @@
 class RecipesController < ApplicationController
+  before_action do
+    return unless Rails.env.development?
+  
+    ActiveStorage::Current.host = request.base_url
+  end
 
   def index
     # @recipes = Recipe.left_outer_joins(:favorites).group(recipes.id).select('recipes.recipe_id , count(favorites.* as fav_count)').order(fav_count: desc)
