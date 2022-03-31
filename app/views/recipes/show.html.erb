@@ -23,9 +23,14 @@
       <%= label_tag :is_browsable, '公開しない', value: 0 %>
     </div>
   </div>
-  <div class=btn_to_home>
-    <%= link_to "修正する", edit_recipe_path(recipe_id: @recipe.recipe_id), class: 'btn_to_home' %>
-  </div>
+  <% if current_user.id == @recipe.user_id %>
+    <div class=btn_to_home>
+      <%= link_to "修正する", edit_recipe_path(recipe_id: @recipe.recipe_id), class: 'btn_to_home' %>
+    </div>
+    <div class=btn_to_home>
+      <%= link_to '削除', recipe_path(recipe_id: @recipe.recipe_id), method: :delete, class: 'btn_to_home'%>
+    </div>
+  <% end %>
   <div class=btn_to_home>
     <%= link_to "ホームへ戻る", recipes_path, class: 'btn_to_home' %>
   </div>

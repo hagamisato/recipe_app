@@ -11,6 +11,8 @@ class RecipesController < ApplicationController
 
     @recipes = Recipe.joins('left outer join photos on recipes.recipe_id = photos.recipe_id')
                      .joins('join materials on recipes.recipe_id = materials.recipe_id')
+                     .joins('join users on users.id = recipes.user_id')
+                     .order(recipe_id: :desc)
     # @recipes = Recipe.all
     # Recipe.select('').joins('left outer ')
 
@@ -29,7 +31,7 @@ class RecipesController < ApplicationController
     material_list = material_list_params
     recipe = Recipe.new(title: recipe[:title], explain: recipe[:explain], is_browsable: recipe[:is_browsable], user_id: current_user.id)
     recipe_id = Recipe.maximum(:recipe_id)
-    material_list = Material.new(nm_material: material_list[:nm_material], amnt_material: material_list[:amnt_material], recipe_id: recipe_id + 1)
+    material_list = Material.new(nm_material: material_list[:nm_material], amnt_material: material_list[:amnt_material], recipe_id: recipe_id)
     recipe_invalid = recipe.invalid?
     materials_invalid = material_list.invalid?
 
@@ -39,7 +41,8 @@ class RecipesController < ApplicationController
       render 'new'
     else
       recipe.save!
-      material.save!
+      material_list.recipe_id = recipe.recipe_id
+      material_list.save!
       redirect_to recipes_path
     end
   end
@@ -77,6 +80,14 @@ class RecipesController < ApplicationController
       material_list.update!(amnt_material: material_list[:amnt_material], nm_material: material_list[:nm_material]) 
       redirect_to recipe_path(recipe_id: recipe.recipe_id)
     end
+  end
+
+  def destroy
+    recipe = Recipe.find(params[:recipe_id])
+    material = Material.find_by(recipe_id: params[:recipe_id])
+    recipe.destroy #destroyメソッドを使用し対象のツイートを削除する。
+    material.destroy #destroyメソッドを使用し対象のツイートを削除する。
+    redirect_to recipes_path
   end
 
   private

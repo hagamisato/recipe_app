@@ -24,9 +24,11 @@
         </div>
         <div class="header_center_menu">
         </div>
-         <%= link_to 'write recipe', new_recipe_path, class:'header_center_recipe'%>
-        <div class=header_right_name><%= current_user.name %></div>
-        <%= link_to "rogout", destroy_user_session_path, method: :delete, class: 'header_center_rogout' %>
+        <%= link_to 'write recipe', new_recipe_path, class:'header_center_recipe'%>
+        <div>
+          <div class=header_right_name><%= current_user.name %></div>
+          <%= link_to "rogout", destroy_user_session_path, method: :delete, class: 'header_center_rogout' %>
+        </div>
       </div>
     <% else %>
       <div class=header_right>
